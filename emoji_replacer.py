@@ -38,7 +38,7 @@ special_case_replace_dictionary = {
     "soon": soon
 }
 
-d_s = {
+char_replacement_dictionary = {
     '1':  [":one:"],
     '2':  [":two:"],
     '3':  [":three:"],
@@ -87,7 +87,6 @@ d_s = {
     abc:  [":abc:"],
     cool: [":cool:"],
     tm:   [":tm:"],
-
     up:   [":up:"],
     new:  [":new:"],
     free: [":free:"],
@@ -104,10 +103,10 @@ total_parsed = ""
 while (continue_parse):
     continue_parse = False
 
-    s = input().lower()
-    if s != "":
+    input_string = input().lower()
+    if input_string != "":
         continue_parse = True
-        total_parsed += s + "\n"
+        total_parsed  += input_string + "\n"
 
 # remove the last line break
 total_parsed = total_parsed[:len(total_parsed) - 1]
@@ -115,16 +114,17 @@ total_parsed = total_parsed[:len(total_parsed) - 1]
 for special_case in special_case_replace_dictionary:
     total_parsed = total_parsed.replace(special_case, special_case_replace_dictionary[special_case])
 
-r_s = ""
+return_string = ""
 for c in total_parsed:
-    if c in d_s:
-        choices = d_s[c]
-        r_s += choices[randint(0, len(choices) - 1)] + " "
+    if c in char_replacement_dictionary:
+        choices = char_replacement_dictionary[c]
+        # add an extra space as Discord collapses side-by-side chars like "de" to a flag.
+        return_string += choices[randint(0, len(choices) - 1)] + " "
     else:
-        r_s += (" " * 4) if c == " " else c
+        return_string += (" " * 4) if c == " " else c
 
-print(r_s)
+print(return_string)
 
 f = open('emojified.txt', 'w')
-f.write(r_s)
+f.write(return_string)
 f.close()
