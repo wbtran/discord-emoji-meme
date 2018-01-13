@@ -159,7 +159,6 @@ def main():
 
     @client.event
     async def on_message(message):
-        print(message.author.id)
         if(message.author.id == config["user"]["id"] and message.content.startswith(command_prefix)):
             await client.edit_message(message, parse(message.content.lstrip(command_prefix)))
 

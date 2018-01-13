@@ -3,10 +3,14 @@
 Translates your text into a discord emoji sentence because this repository is stupid.
 
 ## Setup and Installation
+### Requirements:
+1. Python v3.5+
+
 ### Install
 1. Clone this repo
-1. Install Python 3
-1. Run `pip install discord.py`
+1. Run `pip install discord.py`  
+	*If python's path is not set to v3.5+, replace 'pip' with 'pip3.x' where x is the version number*
+    
 ### Get your Discord user token
 1. Open Discord (web or desktop app)
 1. Press `ctrl` + `shift` + `I`
@@ -22,6 +26,7 @@ Translates your text into a discord emoji sentence because this repository is st
 1. Paste into config file
 
 ## Usage
-1. Run `python ./emoji_replacer.py`
+1. Run `python ./emoji_replacer.py`  
+	*If python's path is not set to v3.5+, replace 'python' with 'python3.x' where x is the version number*
 1. Wait for the ready message
 1. Prefix your messages with `.em`
