@@ -22,6 +22,7 @@ daddy = "Ȝ"
 think = "ʨ"
 rod   = "ʤ"
 buns  = "Ƞ"
+kms   = "ʛ"
 
 special_case_replace_dictionary = {
     "cool" : cool,
@@ -53,7 +54,8 @@ special_case_replace_dictionary = {
     "cock" : rod,
     "booty": buns,
     "butt" : buns,
-    "ass"  : buns
+    "ass"  : buns,
+    "kms"  : kms
 }
 
 char_replacement_dictionary = {
@@ -101,8 +103,8 @@ char_replacement_dictionary = {
     ok   : [":ok:"],
     ng   : [":ng:"],
     new  : [":new:"],
-    ab   : ["ab"],
-    sos  : ["sos"],
+    ab   : [":ab:"],
+    sos  : [":sos:"],
     cl   : [":cl:"],
     abc  : [":abc:"],
     cool : [":cool:"],
@@ -120,7 +122,8 @@ char_replacement_dictionary = {
             ":regional_indicator_y: :weary:"],
     think: [":thinking:"],
     rod  : [":eggplant:"],
-    buns : [":peach:"]
+    buns : [":peach:"],
+    kms  : [":grimacing: :gun:", ":sunglasses: :gun:"]
 }
 
 print("Enter the sentence you would like to translate.")
