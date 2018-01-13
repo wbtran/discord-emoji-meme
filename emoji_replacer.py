@@ -39,6 +39,7 @@ special_case_replace_dictionary = {
     "top"  : top,
     "soon" : soon,
     "<3"   : love,
+    "love" : love,
     "daddy": daddy
 }
 
