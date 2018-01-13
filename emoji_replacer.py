@@ -35,7 +35,7 @@ d_s = {
     '0': [":zero:"],
     'a': [":regional_indicator_a:", ":a:"],
     'b': [":regional_indicator_b:", ":b:"],
-    'c': [":regional_indicator_c:", ":star_and_crescent:"],
+    'c': [":regional_indicator_c:", ":star_and_crescent:", ":copyright:"],
     'd': [":regional_indicator_d:"],
     'e': [":regional_indicator_e:"],
     'f': [":regional_indicator_f:"],
@@ -50,7 +50,7 @@ d_s = {
     'o': [":regional_indicator_o:", ":o:", " :o2:"],
     'p': [":regional_indicator_p:"],
     'q': [":regional_indicator_q:"],
-    'r': [":regional_indicator_r:"],
+    'r': [":regional_indicator_r:", ":registered:"],
     's': [":regional_indicator_s:"],
     't': [":regional_indicator_t:"],
     'u': [":regional_indicator_u:"],
@@ -99,3 +99,7 @@ for c in total_parsed:
         r_s += (" " * 4) if c == " " else c
 
 print(r_s)
+
+f = open('emojified.txt', 'w')
+f.write(r_s)
+f.close()
