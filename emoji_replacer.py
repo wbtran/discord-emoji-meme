@@ -1,41 +1,45 @@
 from random import randint
 
-ok   = "•"
-ng   = "‣"
-new  = "◦"
-ab   = "※"
-sos  = "Ŷ"
-cl   = "ƈ"
-abc  = "Ɔ"
-cool = "Ť"
-tm   = "ƌ"
-up   = "Ʊ"
-new  = "ƞ"
-free = "ƒ"
-end  = "Ɛ"
-back = "Ɓ"
-on   = "ơ"
-top  = "Ƭ"
-soon = "ƨ"
+ok    = "•"
+ng    = "‣"
+new   = "◦"
+ab    = "※"
+sos   = "Ŷ"
+cl    = "ƈ"
+abc   = "Ɔ"
+cool  = "Ť"
+tm    = "ƌ"
+up    = "Ʊ"
+new   = "ƞ"
+free  = "ƒ"
+end   = "Ɛ"
+back  = "Ɓ"
+on    = "ơ"
+top   = "Ƭ"
+soon  = "ƨ"
+love  = "ǽ"
+daddy = "Ȝ"
 
 special_case_replace_dictionary = {
-    "cool": cool,
-    "ok"  : ok,
-    "ng"  : ng,
-    "new" : new,
-    "abc" : abc,
-    "ab"  : ab,
-    "sos" : sos,
-    "cl"  : cl,
-    "tm"  : tm,
-    "up"  : up,
-    "new" : new,
-    "free": free,
-    "end" : end,
-    "back": back,
-    "on"  : on,
-    "top" : top,
-    "soon": soon
+    "cool" : cool,
+    "ok"   : ok,
+    "ng"   : ng,
+    "new"  : new,
+    "abc"  : abc,
+    "ab"   : ab,
+    "sos"  : sos,
+    "cl"   : cl,
+    "tm"   : tm,
+    "up"   : up,
+    "new"  : new,
+    "free" : free,
+    "end"  : end,
+    "back" : back,
+    "on"   : on,
+    "top"  : top,
+    "soon" : soon,
+    "<3"   : love,
+    "daddy": daddy
 }
 
 char_replacement_dictionary = {
@@ -94,7 +98,10 @@ char_replacement_dictionary = {
     back: [":back:"],
     on:   [":on:"],
     top:  [":top:"],
-    soon: [":soon:"]
+    soon: [":soon:"],
+    love: [":heart:", ":hearts:", ":sparkling_heart:", ":heartpulse:"],
+    daddy:[":weary: :regional_indicator_d: :a: :regional_indicator_d: :regional_indicator_d:" +
+           ":regional_indicator_y: :weary:"]
 }
 
 print("Enter the sentence you would like to translate.")
