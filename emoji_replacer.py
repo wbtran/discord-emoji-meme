@@ -95,6 +95,6 @@ for c in total_parsed:
         choices = d_s[c]
         r_s += choices[randint(0, len(choices) - 1)] + " "
     else:
-        r_s += c
+        r_s += (" " * 4) if c == " " else c
 
 print(r_s)
