@@ -1,3 +1,5 @@
+import configparser
+import discord
 from random import randint
 
 ok    = "•"
@@ -126,34 +128,41 @@ char_replacement_dictionary = {
     kms  : [":grimacing: :gun:", ":sunglasses: :gun:"]
 }
 
-print("Enter the sentence you would like to translate.")
-continue_parse = True
-total_parsed = ""
-while (continue_parse):
-    continue_parse = False
+def parse(input_string):
+    input_string = input_string.lower()
 
-    input_string = input().lower()
-    if input_string != "":
-        continue_parse = True
-        total_parsed  += input_string + "\n"
+    for special_case in special_case_replace_dictionary:
+        input_string = input_string.replace(special_case, special_case_replace_dictionary[special_case])
 
-# remove the last line break
-total_parsed = total_parsed[:len(total_parsed) - 1]
+    return_string = ""
+    for c in input_string:
+        if c in char_replacement_dictionary:
+            choices = char_replacement_dictionary[c]
+            # add an extra space as Discord collapses side-by-side chars like "de" to a flag.
+            return_string += choices[randint(0, len(choices) - 1)] + " "
+        else:
+            return_string += (" " * 4) if c == " " else c
 
-for special_case in special_case_replace_dictionary:
-    total_parsed = total_parsed.replace(special_case, special_case_replace_dictionary[special_case])
+    return return_string
 
-return_string = ""
-for c in total_parsed:
-    if c in char_replacement_dictionary:
-        choices = char_replacement_dictionary[c]
-        # add an extra space as Discord collapses side-by-side chars like "de" to a flag.
-        return_string += choices[randint(0, len(choices) - 1)] + " "
-    else:
-        return_string += (" " * 4) if c == " " else c
 
-print(return_string)
+def main():
+    config = configparser.ConfigParser()
+    config.read("config.ini")
+    client = discord.Client()
 
-f = open('emojified.txt', 'w')
-f.write(return_string)
-f.close()
+    @client.event
+    async def on_ready():
+        print("Ready to meme!")
+
+    @client.event
+    async def on_message(message):
+        if(message.author.id == config["user"]["id"] and message.content.startswith(".em ")):
+            await client.edit_message(message, parse(message.content.lstrip(".em ")))
+
+    print("Logging in, please wait...")
+    client.run(config["user"]["token"], bot=False)
+
+
+if __name__ == "__main__":
+    main()
