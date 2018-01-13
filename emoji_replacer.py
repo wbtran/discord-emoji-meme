@@ -2,6 +2,8 @@ import configparser
 import discord
 from random import randint
 
+command_prefix = ".em "
+
 ok    = "•"
 ng    = "‣"
 new   = "◦"
@@ -153,12 +155,13 @@ def main():
 
     @client.event
     async def on_ready():
-        print("Ready to meme!")
+        print("Ready to meme!\nEmojify your sentences by starting them with '{0}'".replace("{0}", command_prefix))
 
     @client.event
     async def on_message(message):
-        if(message.author.id == config["user"]["id"] and message.content.startswith(".em ")):
-            await client.edit_message(message, parse(message.content.lstrip(".em ")))
+        print(message.author.id)
+        if(message.author.id == config["user"]["id"] and message.content.startswith(command_prefix)):
+            await client.edit_message(message, parse(message.content.lstrip(command_prefix)))
 
     print("Logging in, please wait...")
     client.run(config["user"]["token"], bot=False)
