@@ -150,6 +150,7 @@ def main():
     config = configparser.ConfigParser()
     config.read("config.ini")
     client = discord.Client()
+    prefix = ".em "
 
     @client.event
     async def on_ready():
@@ -157,8 +158,8 @@ def main():
 
     @client.event
     async def on_message(message):
-        if(message.author.id == config["user"]["id"] and message.content.startswith(".em ")):
-            await client.edit_message(message, parse(message.content.lstrip(".em ")))
+        if(message.author.id == config["user"]["id"] and message.content.startswith(prefix)):
+            await client.edit_message(message, parse(message.content[len(prefix):]))
 
     print("Logging in, please wait...")
     client.run(config["user"]["token"], bot=False)
