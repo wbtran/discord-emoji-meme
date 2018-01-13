@@ -97,4 +97,4 @@ for c in total_parsed:
     else:
         r_s += (" " * 4) if c == " " else c
 
-print(r_s :chipmunk:)
+print(r_s + :chipmunk:)
